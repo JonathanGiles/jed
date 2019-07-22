@@ -66,3 +66,13 @@ public class ClientLibrary {
     }
 }
 ```
+
+In many cases registering a custom Deserializer will be overkill. In many cases it is possible to simply use the `JavaApi`
+APIs directly, e.g:
+
+```java
+String json = "{ \"color\" : \"Black\", \"type\" : \"BMW\" }";
+Car car = jsonApi.readString(json, Car.class);
+```
+
+More examples can be seen in the [jsonwrapper-test](https://github.com/JonathanGiles/jsonwrapper/tree/master/jsonwrapper-test) module.

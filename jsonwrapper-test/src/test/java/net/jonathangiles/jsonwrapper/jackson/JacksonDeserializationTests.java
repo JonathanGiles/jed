@@ -10,7 +10,7 @@ public class JacksonDeserializationTests extends JsonDeserializationTests {
 
     @BeforeEach
     public void createDeserializer() {
-        jsonDeserializer = JsonWrapper.newInstance("net.jonathangiles.jsonwrapper.jackson.JacksonDeserializer");
-        assertNotNull(jsonDeserializer, "Couldn't create instance of deserializer");
+        jsonApi = JsonWrapper.newInstance("net.jonathangiles.jsonwrapper.jackson.JacksonDeserializer");
+        assertNotNull(jsonApi, "Couldn't create instance of deserializer");
     }
 }

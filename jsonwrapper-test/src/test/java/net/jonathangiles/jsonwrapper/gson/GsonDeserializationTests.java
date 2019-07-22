@@ -10,7 +10,7 @@ public class GsonDeserializationTests extends JsonDeserializationTests {
 
     @BeforeEach
     public void createDeserializer() {
-        jsonDeserializer = JsonWrapper.newInstance("net.jonathangiles.jsonwrapper.gson.GsonDeserializer");
-        assertNotNull(jsonDeserializer, "Couldn't create instance of deserializer");
+        jsonApi = JsonWrapper.newInstance("net.jonathangiles.jsonwrapper.gson.GsonDeserializer");
+        assertNotNull(jsonApi, "Couldn't create instance of deserializer");
     }
 }
