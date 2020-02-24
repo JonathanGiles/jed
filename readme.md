@@ -1,17 +1,14 @@
-# JSON Wrapper
+# JED - The Java Deserializer Abstraction Layer
 
-JSON wrapper is a pluggable Java API that abstracts away the underlying JSON implementation library. This enables 
-libraries that use JSON Wrapper to not have to expose a hard dependency on any particular implementation. At present
-the focus of this library is on deserialization (JSON to Java objects), and it has support for two open source JSON
-libraries:
-
-* [Jackson](https://github.com/FasterXML/jackson)
-* [Gson](https://github.com/google/gson)
+JED is a pluggable Java API that abstracts away the underlying implementation libraries for various data interchange
+formats, such as JSON, Avro, etc. This enables libraries that use JED to not have to expose a hard dependency on any 
+particular implementation. At present the focus of this library is on deserialization only, with support for two
+JSON libraries (Jackson and Gson) and one Avro library (Apache Avro).
 
 ## Usage
 
-This library is intended for use by other class libraries that desire to expose JSON deserialization to end users in a 
-way that does not infer a hard dependency on a particular JSON library such as Jackson or Gson. Without using this 
+This library is intended for use by other class libraries that desire to expose deserialization to end users in a 
+way that does not infer a hard dependency on a particular implementation library. Without using this 
 library, developers may need to expose API such as this:
 
 ```java
@@ -31,12 +28,14 @@ with the Gson `JsonDeserializer` class (as well as other Gson types `JsonElement
 `JsonParseException`, and `JsonObject`). This means that we, as the owner of `ClientLibrary`, are now forever bonded to 
 Gson, regardless of its ongoing support, popularity, feature set, and security issues. The same argument can be made if 
 we instead choose to expose Jackson through our public API. The goal of this library is to offer an abstraction over any
-particular JSON library, such that they may be used interchangeably.
+particular library, such that they may be used interchangeably.
 
-Because JSON Wrapper is pluggable, it means that the user can opt-in to using either Gson, Jackson, or any other
-compatible plugin. This means that if the user has annotated their model classes with Gson- or Jackson-specific 
-annotations, that they can use the appropriate plugin to ensure that these annotations are fully consumed as part of the 
-parsing process, to get the desired results.
+Because JED is pluggable, it means that the user can opt-in to using either Gson or Jackson (for JSON), and Apache Avro
+(for Avro), or any other compatible plugin. This means that if the user has annotated their model classes with Gson- or 
+Jackson-specific annotations, that they can use the appropriate plugin to ensure that these annotations are fully consumed 
+as part of the parsing process, to get the desired results.
+
+### JSON
 
 Instead, the API offered to the user should use the `Deserializer` class:
 
@@ -75,4 +74,8 @@ String json = "{ \"color\" : \"Black\", \"type\" : \"BMW\" }";
 Car car = jsonApi.readString(json, Car.class);
 ```
 
-More examples can be seen in the [jsonwrapper-test](https://github.com/JonathanGiles/jsonwrapper/tree/master/jsonwrapper-test) module.
+More examples can be seen in the [jed-json-test](https://github.com/JonathanGiles/jsonwrapper/tree/master/jed-json-test) module.
+
+### Avro
+
+To be continued...
