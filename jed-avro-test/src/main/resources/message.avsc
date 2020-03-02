@@ -1,0 +1,19 @@
+{
+ "namespace": "net.jonathangiles.tools.jed.avro.model",
+ "type": "record",
+ "name": "Message",
+ "fields": [
+     {"name": "isEmpty", "type": "boolean"},
+     {"name": "sizeInBytes", "type": "int"},
+     {"name": "sequenceNumber", "type": "long"},
+     {"name": "cost", "type": "float"},
+     {"name": "compressionRatio", "type": "double"},
+     {"name": "data", "type": "bytes"},
+     {"name": "messageId",  "type": "string"},
+     {"name": "source", "type": {"name": "SourceType", "type": "enum", "symbols": ["EVENTHUBS", "KAFKA", "KINESIS"]}},
+     {"name": "groups", "type": {"type":"array", "items": "string"}},
+     {"name": "properties", "type": {"type": "map", "values": "string"}},
+     {"name": "creationTime", "type": {"type": "long", "logicalType": "timestamp-millis"}},
+     {"name": "timeToLiveInSeconds", "type": {"type": "long", "logicalType": "duration"}}
+ ]
+}

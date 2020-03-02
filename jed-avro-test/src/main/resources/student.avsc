@@ -1,0 +1,10 @@
+{"namespace": "net.jonathangiles.tools.jed.avro.model",
+ "type": "record",
+ "name": "Student",
+ "fields": [
+     {"name": "firstName", "type": "string"},
+     {"name": "lastName", "type": "string"},
+     {"name": "schoolName", "type": "string"},
+     {"name": "age",  "type": ["int", "null"]}
+ ]
+}
