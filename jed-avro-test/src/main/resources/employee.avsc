@@ -1,9 +1,10 @@
-{"namespace": "net.jonathangiles.tools.jed.avro.apache",
+{"namespace": "net.jonathangiles.tools.jed.avro.model",
  "type": "record",
- "name": "User",
+ "name": "Employee",
  "fields": [
      {"name": "firstName", "type": "string"},
      {"name": "lastName", "type": "string"},
+     {"name": "manager", "type": ["Employee", "null"]},
      {"name": "age",  "type": ["int", "null"]}
  ]
 }
